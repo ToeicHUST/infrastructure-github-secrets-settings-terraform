@@ -1,0 +1,23 @@
+# terraform.tfvars
+
+github_token = "ghp_xxxxxxxxxxxxxxxxx"
+
+# # --- THÊM MỚI ---
+# repositories = [
+#   "npm-package",
+#   "backend-service",
+#   "frontend-app"
+# ]
+
+# --- GIỮ NGUYÊN ---
+secrets = {
+  VAULT_ADDR           = "https://vault.your-domain.com"
+  
+  VAULT_DATA_PATH_DEV  = "secret/data/toeic-hust/dev"
+  VAULT_ROLE_ID_DEV    = "xxxx-xxxx-xxxx"
+  VAULT_SECRET_ID_DEV  = "xxxx-xxxx-xxxx"
+
+  VAULT_DATA_PATH_PROD = "secret/data/toeic-hust/prod"
+  VAULT_ROLE_ID_PROD   = "yyyy-yyyy-yyyy"
+  VAULT_SECRET_ID_PROD = "yyyy-yyyy-yyyy"
+}
