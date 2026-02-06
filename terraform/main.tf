@@ -13,13 +13,21 @@ provider "github" {
   owner = "ToeicHUST" # Organization của bạn
 }
 
-# Tạo Organization Secret tự động từ map
+# Giữ nguyên phần provider và Actions secret cũ của bạn
 resource "github_actions_organization_secret" "org_secrets" {
-  for_each = var.secrets
+  for_each        = var.secrets
+  secret_name     = each.key
+  plaintext_value = each.value
+  visibility      = "all"
+}
+
+# Dependabot Organization Secrets
+resource "github_dependabot_organization_secret" "dependabot_org_secrets" {
+  for_each        = var.secrets  
 
   secret_name     = each.key
   plaintext_value = each.value
-  visibility      = "all" # Tùy chọn: 'all', 'private', hoặc 'selected'
+  visibility      = "all"  
 }
 
 
